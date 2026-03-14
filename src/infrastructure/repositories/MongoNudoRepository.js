@@ -3,13 +3,9 @@ import NudoModel       from "../database/models/NudoModel.js";
 
 export default class MongoNudoRepository extends NudomRepository {
   async save(nudo) {
-    await NudoModel.findOneAndUpdate(
-      { id: nudo.id },
-      nudo,
-      { upsert: true, new: true }
-    );
-    return nudo;
-  }
+  const doc = new NudoModel(nudo);
+  return await doc.save();
+}
 
   async findAll() {
     return await NudoModel.find();

@@ -1,9 +1,9 @@
-import InMemoryNudoRepository from "../repositories/InMemoryNudoRepository.js";
+import MongoNudoRepository from "../repositories/MongoNudoRepository.js";
 import CreateNudo             from "../../application/usecases/CreateNudo.js";
 import NudoController         from "../controllers/NudoController.js";
 import GetAllNudos from "../../application/usecases/GetAllNudos.js";
 // 1. Repositorio
-const repository = new InMemoryNudoRepository();
+const repository = new MongoNudoRepository();
 
 // 2. Use cases
 const createNudo = new CreateNudo(repository);
